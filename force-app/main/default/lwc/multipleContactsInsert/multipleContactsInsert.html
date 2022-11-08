@@ -1,0 +1,77 @@
+<template>
+    <lightning-card  title="Bulk Insert Form" icon-name="standard:contact">
+
+       <lightning-record-edit-form id={contactRecList.Id}
+
+                object-api-name="Contact">
+        <lightning-messages></lightning-messages>
+        <lightning-input-field field-name="FirstName"></lightning-input-field>
+        <lightning-input-field field-name="LastName"></lightning-input-field>
+        <lightning-input-field field-name="Email"></lightning-input-field>
+        <lightning-input-field field-name="AccountId"></lightning-input-field>
+       
+       
+       </lightning-record-edit-form> 
+
+      
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:contact" size="small"></lightning-icon>
+            &nbsp;Insert Multiple Contacts
+        </h3>
+        <div slot="footer">
+            <lightning-button  label="Add Row" variant="brand"  onclick={addRow}>
+            </lightning-button>&nbsp;
+            <lightning-button  label="Save" variant="brand" onclick={saveMultipleContacts}>
+            </lightning-button>
+        </div> 
+
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-text-title_caps">
+                    <th scope="col">
+                        <div class="slds-truncate" title="S.No">Sr.NO</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="First Name">First Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Last Name">Last Name</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Email">Email</div>
+                    </th>
+                    <th scope="col">
+                        <div class="slds-truncate" title="Account">Account</div>
+                    </th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <template for:each={contactRecList} for:item="contact" for:index="index">
+                    <tr key={keyIndex}>
+                        <td>{index}</td>
+                        <td>
+                            <lightning-input name='fName' access-key={index} id={index} type='text' onchange={changeHandler}  value={contact.FirstName}>
+                            </lightning-input>
+                        </td>
+                        <td>
+                            <lightning-input name='lName' access-key={index} id={index} type='text' onchange={changeHandler}   value={contact.LastName}>
+                            </lightning-input>
+                        </td>
+                        <td>
+                            <lightning-input name='email' access-key={index} id={index} type='Email' onchange={changeHandler} value={contact.Email}></lightning-input>
+                        </td> 
+
+                        <td>
+                            <lightning-record-form object-api-name="Contact" >
+                                 <lightning-input-field style="margin-top:5px" field-name="AccountId" variant="label-hidden" onchange={handleAccountSelection}> </lightning-input-field> 
+                                <lightning-input-field field-name="AccountId" variant="label-hidden" onchange={handleAccountSelection}> </lightning-input-field>
+                            </lightning-record-form>
+                        </td>
+                    </tr>
+                </template>
+            </tbody>
+        </table>      
+    -->
+    </lightning-card>
+</template>

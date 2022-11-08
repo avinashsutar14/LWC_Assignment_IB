@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Table" >
+       
+    <template if:true={DataReceived} >
+        <lightning-datatable
+        key-field="id"
+        data={data}
+        show-row-number-column
+        row-number-offset={rowOffset}
+        hide-checkbox-column
+        columns={fieldColumns}
+        onrowaction={handleRowAction}>
+        </lightning-datatable> 
+</template>
+    </lightning-card>
+
+</template>

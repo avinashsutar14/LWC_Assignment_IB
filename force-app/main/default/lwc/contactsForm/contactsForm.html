@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="Contact Creation Form">
+    <h3 slot="title">
+        <lightning-icon icon-name="standard:contact" size="small"></lightning-icon>
+        &nbsp;Insert Multiple Contacts
+    </h3>
+    <div slot="footer">
+        <lightning-button label="Add Row" variant="brand" onclick={addRow}>
+        </lightning-button>&nbsp;
+        <lightning-button label="Save Contact(s)" variant="brand" onclick={saveMultipleContacts}>
+        </lightning-button>
+<div>
+    
+    <lightning-datatable
+    key-field="id"
+    data={dataList}
+    show-row-number-column
+    row-number-offset={rowOffset}
+    hide-checkbox-column
+    columns={columnsList}
+    >
+</lightning-datatable>
+</div>
+
+    </div>
+
+    <template for:each={contactRecList} for:item="contact" for:index="index">
+        <lightning-record-edit-form key={contact.KeyId} object-api-name="Contact">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <span>
+                        <lightning-input name="fName" access-key={index} label="First Name"  onchange={handleChange} value={contact.FirstName}></lightning-input>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <lightning-input name="lName" access-key={index} label="Last Name" required="true" onchange={handleChange} value={contact.LastName}></lightning-input>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <lightning-input name="email" access-key={index} label="Email"  onchange={handleChange} value={contact.Email}></lightning-input>
+                    </span>
+                </div>
+                <div class="slds-col">
+                    <span>
+                        <c-account-lookup access-key={index} ongetaccountrec={handleAccount}></c-account-lookup>
+                    </span>
+                </div>
+            </div>
+        </lightning-record-edit-form>
+    </template>
+</lightning-card>
+    </template>

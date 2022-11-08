@@ -1,0 +1,41 @@
+<template>
+    <lightning-button label="Create Opportunity" variant="brand" onclick={handleClick}> </lightning-button>
+
+    <template if:true={showOpp}>
+    <lightning-card  variant="Narrow"  title="#1Create Opportunity Using Field Set" >
+        <p class="slds-p-horizontal_small">
+            <lightning-input type="text" variant="standard" name="name" 
+                            label="Opportunity Name" placeholder="type here..." 
+                            onchange={handlechange}
+                            value={name}></lightning-input>
+                            
+            <lightning-input  variant="standard" name="Account" 
+                            label="Account" 
+                            read-only="true"
+                            value={recordId}></lightning-input>
+             
+            <lightning-combobox
+                name="stageName"
+                label="Stage Name"
+                value={stageName}
+                placeholder="Select Stage"
+                options={options}
+                onchange={handlePickChange} ></lightning-combobox>                
+
+            
+
+            <lightning-input type="number" variant="standard" name="Amount" 
+                            label="Amount" placeholder="type here..." 
+                            onchange={handlechange}
+                            value={amount}></lightning-input>
+
+            <lightning-input type="date" variant="standard" name="CloseDate" 
+                            label="Close Date" placeholder="type here..." 
+                            onchange={handlechange}
+                            value={closeDate}></lightning-input>
+        </p>
+        <br/>
+            <lightning-button label="Save" onclick={createOppRec} variant="brand"></lightning-button>
+    </lightning-card>
+</template>
+</template>

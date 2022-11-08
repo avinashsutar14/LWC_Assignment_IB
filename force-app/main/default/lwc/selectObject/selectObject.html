@@ -1,0 +1,17 @@
+<template>
+    <lightning-card  title="Records#1" >
+       <lightning-combobox
+        name="SelectObject"
+        label="Select Object"
+        value={selectedObject}
+        placeholder="Select object"
+        options={options}
+        onchange={handleChange} ></lightning-combobox>
+
+        <div>Selected Object is: {objectName}</div>
+
+    </lightning-card>
+  <!--  <template if:true={fieldColumns}> -->
+    <c-all-data-table ></c-all-data-table>
+<!--</template> -->
+</template>

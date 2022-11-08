@@ -1,0 +1,29 @@
+<template>
+    <lightning-card  variant="Narrow"  title="#2Create Opportunity Using Field Set" >
+        <p class="slds-p-horizontal_small">
+            <lightning-input type="text" variant="standard" name="name" 
+                            label="Opportunity Name" placeholder="type here..." 
+                            onchange={handelNamechange}
+                            value={OppRec.Name}></lightning-input>
+                            
+            <lightning-output-field>Account: </lightning-output-field>
+                        
+            <lightning-input type="text" variant="standard" name="StageName" 
+                            label="StageName" placeholder="type here..." 
+                            onchange={handelStNamechange}
+                            value={OppRec.StageName}></lightning-input>
+
+            <lightning-input type="number" variant="standard" name="Amount" 
+                            label="Amount" placeholder="type here..." 
+                            onchange={handelAmountchange}
+                            value={OppRec.Amount}></lightning-input>
+
+            <lightning-input type="date" variant="standard" name="CloseDate" 
+                            label="Close Date" placeholder="type here..." 
+                            onchange={handelDatechange}
+                            value={OppRec.CloseDate}></lightning-input>
+        </p>
+        <br/>
+            <lightning-button label="Save" onclick={createOppRec} variant="brand"></lightning-button>
+    </lightning-card>
+</template>
